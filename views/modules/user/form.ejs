@@ -1,0 +1,76 @@
+<div class="col-md-10">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="content-box-large">
+				<div class="panel-heading">
+		        <div class="panel-title">User Add/ Update</div>
+		      
+		        <div class="panel-options">
+		          <a href="/user" data-rel="collapse"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+		        </div>
+		    </div>
+				<div class="panel-body">
+					<form class="form-horizontal" role="form">
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="Name" name="name">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="Email" name="email">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="Username" name="username" value="<% userData.name%>">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Password</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="Password" name="password" readonly="readonly" value="<% userData.password %>">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Contact</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="Contact" name="contact" value="<% userData.contact%>">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Token</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="" readonly="readonly"  value="<% userData.token%>">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">Token Expire In</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" placeholder="Email" readonly="readonly" value="<% userData.expireIn%>">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class="btn btn-primary">Submit</button>
+					    </div>
+					  </div>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
