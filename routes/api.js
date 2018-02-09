@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var apiController = require('../controller/apiController');
+var apiController = require('../modules/api/apiController');
 
 router.get('/', function(req, res, next) {
 	res.send("Api goes Here.");

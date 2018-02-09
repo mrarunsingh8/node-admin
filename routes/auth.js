@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var authModal = require('../modal/authModal');
+var authModal = require('../modules/auth/authModal');
 
 router.post('/', function(req, res, next) {
 

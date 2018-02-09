@@ -650,3 +650,7 @@ body {
       border-radius:10px;
    }  
 }
+
+.no-resize{
+    resize: none;
+}
