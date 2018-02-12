@@ -13,6 +13,7 @@ var basicAuth = require('express-basic-auth');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var books = require('./routes/book');
 var auth = require('./routes/auth');
 var apiRoutes = require('./routes/api');
 
@@ -32,11 +33,13 @@ app.use(validator());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser({uploadDir: '/public'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/user', users);
+app.use('/book', books);
 app.use('/authenticate', auth);
 app.use('/api', router);
 

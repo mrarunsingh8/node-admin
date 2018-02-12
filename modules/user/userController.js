@@ -25,16 +25,15 @@ var userController = {
 
     add: function (req, res, next) {
         if(req.method == 'POST'){
-            var formError = userValidation(req);
-            console.log(formError);
-            if(!formError){
-                userModal.AddNewUser(req.body).then(function (results) {
-                    console.log(results);
-                    return res.redirect("/user");
-                });
-            }else{
-                res.render('modules/user/form', {formError: formError});
-            }
+            userValidation(req).then(function (formError) {
+                if(typeof formError === 'object' && !Object.keys(formError).length){
+                    userModal.AddNewUser(req.body).then(function (results) {
+                        return res.redirect("/user");
+                    });
+                }else{
+                    res.render('modules/user/form', {userData: req.body, formError: formError});//
+                }
+            });
         }else{
             res.render("modules/user/form", {formError: {}});
         }
@@ -42,15 +41,21 @@ var userController = {
 
     update: function (req, res, next) {
         var userId = parseInt(req.params.id);
-        userModal.UpdateUser(req.body, userId).then(function (results) {
-            return res.redirect('/user');
-        }).catch(function (reason) {
-            throw reason;
+        userValidation(req).then(function (formError) {
+            if(typeof formError === 'object' && !Object.keys(formError).length){
+                userModal.UpdateUser(req.body, userId).then(function (results) {
+                    return res.redirect('/user');
+                }).catch(function (reason) {
+                    throw reason;
+                });
+            }else{
+                res.render('modules/user/form', {userData: req.body, formError: formError});
+            }
         });
     },
 
     delete: function (req, res, next) {
-        let userId = parseInt(req.params.id);
+        var userId = parseInt(req.params.id);
         userModal.DeleteUser(userId).then(function (results) {
             return res.redirect('/user');
         }).catch(function (reason) {
