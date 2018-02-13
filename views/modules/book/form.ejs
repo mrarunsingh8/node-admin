@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" action="/book/upload" method="post" enctype="multipart/form-data">
                         <div class="form-group <%= (typeof formError=='object' && formError.hasOwnProperty('bookname')) ? 'has-error' : 'no-has-error'; %>">
                             <label for="inputEmail3" class="col-sm-2 control-label">Book Name</label>
                             <div class="col-sm-10">
@@ -66,7 +66,9 @@
                         <div class="form-group <%= (typeof formError=='object' && formError.hasOwnProperty('price')) ? 'has-error' : 'no-has-error'; %>">
                             <label for="inputEmail3" class="col-sm-2 control-label">Image</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" image="image" value="">
+                                <!--<input type="file" class="form-control" name="image" value="">-->
+                                <input id="input-image-upload" class="file"  name="image" type="file" data-show-preview="true">
+                                <span class="help-block" id="input-image-upload-error"></span>
                             </div>
                         </div>
 

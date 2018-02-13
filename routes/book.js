@@ -1,4 +1,6 @@
 var express = require('express');
+var multerUploader = require("../lib/multerUploader");
+
 var router = express.Router();
 
 var bookController = require('../modules/book/bookController');
@@ -16,6 +18,8 @@ router.post('/edit/:id', bookController.update);
 
 router.get('/delete/:id', bookController.delete);
 
-router.post('/upload', bookController.upload);
+router.post('/upload', multerUploader.single('image'), function (req, res, next) {
+    res.send(JSON.stringify(req));
+});//bookController.upload
 
 module.exports = router;

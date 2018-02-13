@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+//var multer = require('multer');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -33,7 +34,6 @@ app.use(validator());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser({uploadDir: '/public'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

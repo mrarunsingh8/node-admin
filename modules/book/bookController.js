@@ -68,7 +68,7 @@ var bookController ={
     },
     
     upload: function (req, res, next) {
-        console.log("Path", path);
+        console.log(req.file);
         res.send(path);
     }
 } 
