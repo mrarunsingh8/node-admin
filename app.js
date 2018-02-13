@@ -12,11 +12,13 @@ var expressLayouts = require('express-ejs-layouts');
 var jwt = require("jsonwebtoken");
 var basicAuth = require('express-basic-auth');
 
+var apiRoutes = require('./routes/api');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var books = require('./routes/book');
 var auth = require('./routes/auth');
-var apiRoutes = require('./routes/api');
+var login = require("./routes/login");
+
 
 var app = express();
 
@@ -41,6 +43,7 @@ app.use('/', index);
 app.use('/user', users);
 app.use('/book', books);
 app.use('/authenticate', auth);
+app.use('/login', login);
 app.use('/api', router);
 
 router.use(function(req, res, next){	
